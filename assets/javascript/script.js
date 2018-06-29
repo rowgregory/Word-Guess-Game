@@ -3,33 +3,82 @@
 
 var selectableWords =           // create an array of words
     [
-        "sonicthehedgehog",
-        "shadow", 
-        "knuckles", 
-        "amy", 
-        "tailsmilesprowers", 
-        "drrobotnik",
-        "eggman",
-        "chaos",
-        "infinite",
-        "chaosemeralds",
-        "sonicgenerations",
-        "sonicunleashed",
-        "sonicforces",
+        {
+            word: "sonicthehedgehog", 
+            image: "assets/images/sonic_giphy.gif",
+        },
+        {
+            word: "shadow",
+            image: "assets/images/shadow.gif",
+        }, 
+        {
+            word: "knuckles",
+            image:"assets/images/knuckles_gif.gif",
+        }, 
+        {
+            word: "amy",
+            image: "assets/images/amy_gif.gif",
+        }, 
+        {
+            word: "tailsmilesprower",
+            image: "assets/images/tails_gif.gif",
+        }, 
+        {
+            word: "eggman",
+            image: "assets/images/eggman_giphy.gif",
+        },
+        {
+            word: "infinite",
+            image: "assets/images/infinite_gif.gif",
+        },
+        {
+            word: "chaoseemeralds",
+            image: "assets/images/chaosEmeralds_gif.gif",
+        },
+        {
+            word: "sonicgenerations",
+            image: "assets/images/sonic_generations_gif.gif",
+        },
+        {
+            word: "sonicunleashed",
+            image: "assets/images/sonic_unleashed_gif.gif",
+        },
+        {
+            word: "metalsonic",
+            image: "assets/images/metal_sonic_gif.gif",
+        
+        },
+        {
+            word: "supersonic",
+            image: "assets/images/superSonic_giphy.gif",
+        },
+        {
+            word: "rougethebat",
+            image: "assets/images/rouge_gif.gif",
+        },
+        {
+            word: "sonicforces",
+            image: "assets/images/sonicForces_gif.gif",
+        },
+        {
+            word: "soniclostworld",
+            image: "assets/images/sonicLostWorld.gif",
+        },
+      
     ];
     
 var wins = 0;                   // how many wins the player has racked up
 var losses = 0;                 // tallies number of lossses
 var guessesLeft = 12;           // guesses the user has left
 
-var currentWord = "";           // left empty to store word
+var currentWord = ""; 
+var currentImage = "";          // left empty to store word
 var videoGameLetters = [];      // empty array to store letters of currentWord
 var numBlanks = 0;              // holds the number of "blanks"(where letters will pop up)
 var wrongLtrs = [];             // empty array to store incorrect guesses
 var answer = [];                // empty array to store users answer
 
-// set out game sounds
-//==============================================
+
 
 
 
@@ -38,24 +87,27 @@ var answer = [];                // empty array to store users answer
 
 window.onload = function() {
     document.getElementById("underscore").innerHTML = answer.join(" ");
-    document.getElementById("remaining").innerHTML ="guesses remaing " + guessesLeft;
+    document.getElementById("remaining").innerHTML ="Guesses remaing: " + guessesLeft;
     document.getElementById("wins").innerHTML = "Wins: " + " "
      + wins;
-    document.getElementById("losses").innerHTML = "Losses " + " " + losses;
+    document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
     document.getElementById("guessed").innerHTML = "Choosen letters: " + " " + wrongLtrs;
+    
     
 }
                     
 function beginGame() {
     // === uses Math floor to select word at random
-    currentWord = selectableWords[Math.floor(Math.random() * selectableWords.length)];
-        console.log(currentWord);
+    
+    var accessedIndex = Math.floor(Math.random() * selectableWords.length);
+    currentWord = selectableWords[accessedIndex].word;
+    currentImage = selectableWords[accessedIndex].image;
 
     // === divide (split) randomWord into an individual letters and store it into videoGameletters
     videoGameLetters = currentWord.split("");
         console.log(videoGameLetters);
 
-    // === obrtain number of letters in randomWord and store it into numBlanks
+    // === obtain number of letters in randomWord and store it into numBlanks
      numBlanks = videoGameLetters.length;
         console.log(numBlanks);
 
@@ -67,9 +119,7 @@ function beginGame() {
         for (i=0; i < numBlanks; i++) {
             answer.push('_');
             // console.log(answer);
-        }
-
-        
+        }  
     
     }
 
@@ -110,10 +160,10 @@ console.log("This is the answer " + answer);
 }
 
 function rounds() {
-    document.getElementById("eggMan").style.visibility = "hidden";
-    //document.getElementById("giphy").style.visibility = "hidden";
+    
     document.getElementById("mad").style.visibility = "hidden";
-    document.getElementById("remaining").innerHTML = "Guesses remaining " + " " + guessesLeft;
+    document.getElementById("winImage").style.visibility = "hidden";
+    document.getElementById("remaining").innerHTML = "Guesses remaining: " + " " + guessesLeft;
     document.getElementById("underscore").innerHTML = answer.join(" ");
     document.getElementById("guessed").innerHTML = "Already used: " + " " + wrongLtrs.join(" ");
     
@@ -123,9 +173,10 @@ function rounds() {
         
             
         //update wins
+        document.getElementById("winImage").src=currentImage
         document.getElementById("cash").play();
         document.getElementById("wins").innerHTML = "Wins: " + " " + wins;
-        document.getElementById("giphy").style.visibility = "visible";
+        document.getElementById("winImage").style.visibility = "visible";
         alert("You won");
         beginGame();   
         
@@ -147,11 +198,6 @@ function rounds() {
 
     
 }
-
-
-
-
-
 
         
 beginGame();
