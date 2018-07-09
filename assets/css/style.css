@@ -85,6 +85,41 @@ h3 {
     
 }
 
+@media only screen and (max-width: 414px) {
+
+    .header {
+        
+        background-image: url(../images/sonic_logo.png);
+        margin-left:-40px;
+        margin-top: -10px;
+        height: 200px;
+        width: 450px; 
+        transform:scale(0.8);
+        
+    }
+
+    .underScoreContainer {
+        padding-left:1000px;
+        opacity:0.7;
+        width:100px;
+        background-color: #ebebeb;  
+    }
+
+    #underscore {
+        font-family: 'Press Start 2P', cursive;
+        font-size:14px;
+        display: block;
+        
+    }
+
+    #controls {
+        clear:both;
+        opacity: 0.7;
+       margin-top:500px;
+        
+    }
+}
+
 
 
     
