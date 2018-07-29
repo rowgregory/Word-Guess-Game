@@ -1,6 +1,8 @@
 // Global variables
 // ===========================================
 
+var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+
 var selectableWords =           // create an array of words
     [
         {
@@ -77,8 +79,31 @@ var videoGameLetters = [];      // empty array to store letters of currentWord
 var numBlanks = 0;              // holds the number of "blanks"(where letters will pop up)
 var wrongLtrs = [];             // empty array to store incorrect guesses
 var answer = [];                // empty array to store users answer
+var letterClicked='';
 
 
+
+for (i=0; i < letters.length; i++) {
+
+    var letterBtn = $("<button>");
+
+    letterBtn.addClass("letter-button letter letter-button-color");
+    letterBtn.attr("data-letter", letters[i]);
+    letterBtn.text(letters[i]);
+    $("#buttons").append(letterBtn);
+    };
+
+    $(".letter-button").on("click", function() {
+        letterClicked = $(event.target).text().toLowerCase();
+       letterButtonClicked(letterClicked);
+       console.log(letterClicked);
+
+    var fridgeMagnet = $("<div>");
+
+    fridgeMagnet.addClass("letter fridge-color");
+    fridgeMagnet.text($(this).attr("data-letter"));
+    $("answer").append(fridgeMagnet);
+});
 
 
 
@@ -95,6 +120,8 @@ window.onload = function() {
     
     
 }
+
+
                     
 function beginGame() {
     // === uses Math floor to select word at random
@@ -120,46 +147,43 @@ function beginGame() {
             answer.push('_');
             // console.log(answer);
         }  
+
+        
+
+        
     
     }
 
 
-function compare(character) {
+function letterButtonClicked(x) {
 
     // === determine if key choosen was in the alphabet
-    if(event.keyCode >= 65 && event.keyCode <= 90) {
-
-    // === check to see if letter is in randomWord
-    var rightLetter = false;
-
-    for(i=0; i < numBlanks; i++) {
-        if(videoGameLetters[i] == character) {
-            rightLetter = true;
-            document.getElementById("ring").play();
-            
-        }
-    }
-    // === check where the letter is in the word
-    if(rightLetter) {
-        for( var i = 0; i < numBlanks; i++ ) {
-            if(videoGameLetters[i] == character) {
-                answer[i] = character;
-                
+    
+        for (var i = 0; i < videoGameLetters.length; i++) { 		//scans through every letter in the array
+            if (x === videoGameLetters[i]) {  				//if the letter that was clicked equals the letters of the random word
+                answer[i] = x;	
+                document.getElementById("ring").play();				//then replace the blank space with the clicked letter
             }
-        }   
-    }
-    // === if it is not in the word
-    else {
-        document.getElementById("killed").play();
-        wrongLtrs.push(character);
-        guessesLeft--;
-        
-    }
-}
-console.log("This is the answer " + answer);
+        }
+        $('#underscore').text(answer.join(' '));		//adds answer from letter arrary and displays it
+    
+
+    
+        if (!(videoGameLetters.indexOf(x) > -1)) {			//if the word does not have the letter 
+            	
+            document.getElementById("killed").play();
+            wrongLtrs.push(x);
+            guessesLeft--;							// lives decrement by 1.
+            					
+    
+        }
+        rounds();
+        console.log("This is the answer " + answer);
 }
 
 function rounds() {
+
+    
     
     document.getElementById("mad").style.visibility = "hidden";
     document.getElementById("winImage").style.visibility = "hidden";
@@ -203,7 +227,7 @@ function rounds() {
 beginGame();
 
     
-    document.onkeyup = function(event) {
+    document.keyCode = function(event) {
 
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
         console.log("User guess " + userGuess);

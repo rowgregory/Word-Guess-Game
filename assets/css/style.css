@@ -105,6 +105,42 @@ h3 {
        margin-top:10vw;
         
     }
+    .answerImage {
+        height:50vw;
+        width:90vw;
+    }
+
+    .letter {
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        padding: 2px;
+        float: left;
+        margin: 2px;
+      }
+    
+      .letter-button-color {
+        color: darkcyan;
+      }
+
+    #display {
+        margin-top: 78px;
+        height: 500px;
+        width: 220px;
+        margin-left: 60px;
+      }
+    
+      #buttons {
+        padding-top: 60px;
+      }
+    
+      #clear {
+        margin-left: 20px;
+        font-size: 25px;
+        color: black;
+        border-style: solid;
+        width: 100px;
+      }
 }
 
 
