@@ -124,7 +124,7 @@ window.onload = function() {
 
                     
 function beginGame() {
-    // $("#reset").hide();
+    $("#reset").hide();
     // === uses Math floor to select word at random
     
     var accessedIndex = Math.floor(Math.random() * selectableWords.length);
