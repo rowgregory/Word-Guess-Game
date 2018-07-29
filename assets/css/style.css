@@ -1,121 +1,108 @@
 body {
     background-image: url(../images/greenhillZone_art.png);
     background-repeat: no-repeat;
-    background-size: cover;  
-    width:100%;
-    overflow-x: hidden; 
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin:0;
+    padding:0;
 }
 
-.header {
-    border: 2px solid black;
-    background-image: url(../images/sonic_logo.png);
-    background-size: 475px 200px;
-    height: 200px;
-    width: 450px;  
-}
+
 
 h3 {
+    margin:20vw 0;
     font-family: 'Bungee Inline', cursive;
-    color:black;
-    margin-left:130px;
-    font-size:20px;  
+    background: rgba(0, 0, 0, 0.4);
+    color:white;
+    text-align:center;
+    font-size:20vw;  
+}
+
+.sonicLogo {
+    height:63vw;
 }
 
 .container {
     font-size:20px;
     font-family: 'Bungee Inline', cursive;
-    margin-top: -250px;
-    opacity:none;
-    z-index:10;
-    position:relative;
-    text-indent: 30px;  
+    
+    
+    
+   
+      
 }
 
-.wrapper {
-    background-color:#ebebeb;
-    opacity: 0.7;
-    height:200px;
-    width:450px;
-    margin-top:-200px;
-    z-index:-1;
-}
 
-.underScoreContainer {
-    padding: 30px;
-    opacity:0.7;
-    margin: 90px 150px 20px;
-    background-color: #ebebeb;  
-}
+
+
 
 #underscore {
     font-family: 'Press Start 2P', cursive;
-    font-size:30px;
+    font-size:6vw;
     text-align:center;
 }
 
-.answerImage {
-    display:inline-block;
-    width: 525px;
-    height:425px;
-    margin-left: 37%;
-    margin-right: 30%;
+ .answerImage {
+    /* display:inline-block; */
+    
+    /* width: 525px; */
+    height:50vw;
+    margin-left: 5vw;
+    /* margin-right: 30%; */
     visibility: hidden;
-    z-index: 20;
-    margin-top: -430px;
-    clear:both;
+    /* z-index: 20; */
+    margin-top:3vw;
+    /* clear:both; */
 }
 
 #controls {
-    float:right;
+
     opacity: 0.7;
-   margin-top: -200px;
+   margin:10vw;
     
 }
 
-#wins {
-    text-indent: 30px;
-}
+
 
 #mad {
-    margin-top: -175px;
-    margin-left: 37%;
-    margin-right: 30%;
+    margin-top: 3vw;
+    margin-left:20vw;
+    
     
     
     
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 375px) {
 
-    .header {
-        
-        background-image: url(../images/sonic_logo.png);
-        margin-left:-40px;
-        margin-top: -10px;
-        height: 200px;
-        width: 450px; 
-        transform:scale(0.8);
-        
-    }
 
-    .underScoreContainer {
-        padding-left:1000px;
-        opacity:0.7;
-        width:100px;
-        background-color: #ebebeb;  
-    }
+.container {
+    margin-top:40vw;
+    background: rgba(226, 226, 226, 0.7);
+    
+}
+
+
+
+
+    
 
     #underscore {
         font-family: 'Press Start 2P', cursive;
-        font-size:14px;
-        display: block;
+        font-size:18px;
+        line-height:8vw;
+        color:white;
+        background: rgba(3, 3, 3, 0.7);
+        padding:10vw;
+        
         
     }
 
     #controls {
         clear:both;
         opacity: 0.7;
-       margin-top:500px;
+       margin-top:10vw;
         
     }
 }
