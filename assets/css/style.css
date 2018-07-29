@@ -6,9 +6,10 @@ body {
     background-position: center;
     margin:0;
     padding:0;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
 }
-
-
 
 h3 {
     margin:20vw 0;
@@ -25,17 +26,8 @@ h3 {
 
 .container {
     font-size:20px;
-    font-family: 'Bungee Inline', cursive;
-    
-    
-    
-   
-      
+    font-family: 'Bungee Inline', cursive;     
 }
-
-
-
-
 
 #underscore {
     font-family: 'Press Start 2P', cursive;
@@ -44,49 +36,31 @@ h3 {
 }
 
  .answerImage {
-    /* display:inline-block; */
-    
-    /* width: 525px; */
     height:50vw;
     margin-left: 5vw;
-    /* margin-right: 30%; */
     visibility: hidden;
-    /* z-index: 20; */
     margin-top:3vw;
-    /* clear:both; */
 }
 
 #controls {
-
     opacity: 0.7;
-   margin:10vw;
-    
+   margin:10vw; 
 }
-
-
 
 #mad {
     margin-top: 3vw;
-    margin-left:20vw;
-    
-    
-    
-    
 }
 
 @media only screen and (max-width: 375px) {
 
+    .sonicLogo {
+        height:62.5vw;
+    }
 
-.container {
-    margin-top:40vw;
-    background: rgba(226, 226, 226, 0.7);
-    
-}
-
-
-
-
-    
+    .container {
+        margin-top:10vw;
+        background: rgba(226, 226, 226, 0.7); 
+    }
 
     #underscore {
         font-family: 'Press Start 2P', cursive;
@@ -94,16 +68,13 @@ h3 {
         line-height:8vw;
         color:white;
         background: rgba(3, 3, 3, 0.7);
-        padding:10vw;
-        
-        
+        padding:10vw;  
     }
 
     #controls {
         clear:both;
         opacity: 0.7;
-       margin-top:10vw;
-        
+       margin-top:10vw;  
     }
     .answerImage {
         height:50vw;
@@ -123,24 +94,21 @@ h3 {
         color: darkcyan;
       }
 
-    #display {
-        margin-top: 78px;
-        height: 500px;
-        width: 220px;
-        margin-left: 60px;
-      }
-    
       #buttons {
-        padding-top: 60px;
+        padding:12vw;
+        margin-bottom:40vw;
       }
     
-      #clear {
-        margin-left: 20px;
-        font-size: 25px;
-        color: black;
-        border-style: solid;
-        width: 100px;
-      }
+      #reset {
+        margin-left:40vw;
+        background: #234;
+        color:white;
+        border:none;
+        padding:1vw;
+        width:20vw;
+        border-radius:15px;
+        cursor: pointer;
+    }    
 }
 
 

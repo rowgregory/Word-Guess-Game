@@ -124,6 +124,7 @@ window.onload = function() {
 
                     
 function beginGame() {
+    // $("#reset").hide();
     // === uses Math floor to select word at random
     
     var accessedIndex = Math.floor(Math.random() * selectableWords.length);
@@ -202,14 +203,16 @@ function rounds() {
         document.getElementById("wins").innerHTML = "Wins: " + " " + wins;
         document.getElementById("winImage").style.visibility = "visible";
         alert("You won");
-        beginGame();   
+        $("#reset").show();
+        // beginGame();   
         
     } else if (guessesLeft == 0) {
             losses++;
             document.getElementById("shield").play();
             document.getElementById("mad").style.visibility = "visible";
             alert("you lose!");
-            beginGame();
+            $("#reset").show();
+            // beginGame();
        
 
         // Update the losses in the HTML document
@@ -218,10 +221,16 @@ function rounds() {
         
         // beginGame();
         document.getElementById("guessed").innerHTML = "Choosen letters:" + " " + wrongLtrs.join(" ");
-    }
-
-    
+    }  
 }
+	
+	$('#reset').on('click',function(){
+        window.location.reload(true);
+        // beginGame();
+        $("#reset").hide();
+    });
+ 
+
 
         
 beginGame();
