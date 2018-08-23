@@ -225,7 +225,8 @@ function rounds() {
 }
 	
 	$('#reset').on('click',function(){
-        window.location.reload(true);
+        
+         window.location.reload(true);
         // beginGame();
         $("#reset").hide();
     });
@@ -246,43 +247,3 @@ beginGame();
         
         
     }
-
-
-
-        
-   
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
