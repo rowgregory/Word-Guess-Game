@@ -81,6 +81,10 @@ var wrongLtrs = [];             // empty array to store incorrect guesses
 var answer = [];                // empty array to store users answer
 var letterClicked='';
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 
 
 for (i=0; i < letters.length; i++) {
@@ -107,6 +111,8 @@ for (i=0; i < letters.length; i++) {
 
 
 
+
+
 // DOM manipulation 
 // =============================================
 
@@ -124,6 +130,7 @@ window.onload = function() {
 
                     
 function beginGame() {
+    
     $("#reset").hide();
     // === uses Math floor to select word at random
     
@@ -146,7 +153,7 @@ function beginGame() {
         // === replace (push) the correct amount of letters in the randomWord with underscores 
         for (i=0; i < numBlanks; i++) {
             answer.push('_');
-            // console.log(answer);
+            console.log(answer);
         }  
 
         
@@ -174,7 +181,10 @@ function letterButtonClicked(x) {
             	
             document.getElementById("killed").play();
             wrongLtrs.push(x);
-            guessesLeft--;							// lives decrement by 1.
+            guessesLeft--;
+
+            $(this).remove('x').css('color', 'green').unbind('click');
+            						// lives decrement by 1.
             					
     
         }
@@ -204,6 +214,7 @@ function rounds() {
         document.getElementById("winImage").style.visibility = "visible";
         alert("You won");
         $("#reset").show();
+        $('#myModal').modal('show');
         // beginGame();   
         
     } else if (guessesLeft == 0) {
@@ -212,6 +223,7 @@ function rounds() {
             document.getElementById("mad").style.visibility = "visible";
             alert("you lose!");
             $("#reset").show();
+            $('#myModal').modal('show');
             // beginGame();
        
 
@@ -226,9 +238,9 @@ function rounds() {
 	
 	$('#reset').on('click',function(){
         
-         window.location.reload(true);
-        // beginGame();
-        $("#reset").hide();
+        
+         beginGame();
+        // $("#reset").hide();
     });
  
 
