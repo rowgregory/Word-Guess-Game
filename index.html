@@ -19,20 +19,22 @@
     <div class="container">
         <div class="jumbotron">
             <div class="row">
-                <div class="col-sm-12 col-md-5 text-center">
+                <div class="col-sm-12 col-md-5 l-4 text-center">
                     <h1 class=" animated pulse infinite ">Word Guess Game</h1>
                 </div>
-                <div class="col-sm-12 col-md-7 text-center">
+                <div class="col-sm-12 col-md-7 l-8 text-center">
                     <audio id="controls" controls><source src="assets/audio/Sonic The Hedgehog - Green Hill Zone (Rogue Remix).mp3"></audio>
+                    <div class="col l-1">
                         <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Pick letters to guess the word!">
                                 Hint
-                              </button>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center randomWord">
                 <div class="col-12 text-center">
                     <div id="underscore"></div> 
                 </div>

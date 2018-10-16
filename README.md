@@ -1,6 +1,6 @@
 # Word Guess Game
 
- * This app is similar to hangman. The theme is Sonic the Hedgehog.
+ * This app is a Sonic the Hedgehog themed Word Guess Game.
 
 ## Getting Started
 
@@ -12,8 +12,6 @@
  * [Word Guess Game](https://rowgregory.github.io/Word-Guess-Game/)
      
 ## Demo Videos
-
- * 
 
  * ![](assets/images/Sonic-Word-Guess.gif?raw=true)
  

@@ -131,6 +131,7 @@ window.onload = function() {
                     
 function beginGame() {
     
+    
     $("#reset").hide();
     // === uses Math floor to select word at random
     
@@ -157,7 +158,7 @@ function beginGame() {
         }  
 
         
-
+        
         
     
     }
@@ -236,12 +237,11 @@ function rounds() {
     }  
 }
 	
-	$('#reset').on('click',function(){
+$('#reset').on('click',function(){
         
-        
-         beginGame();
-        // $("#reset").hide();
-    });
+    beginGame();
+    
+});
  
 
 
