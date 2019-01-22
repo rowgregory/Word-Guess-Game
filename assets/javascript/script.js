@@ -1,12 +1,12 @@
 // Global variables
 // ===========================================
 
-var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 var selectableWords =           // create an array of words
     [
         {
-            word: "sonicthehedgehog",
+            word: "sonic the hedgehog",
             image: "assets/images/sonic_giphy.gif",
         },
         {
@@ -22,7 +22,7 @@ var selectableWords =           // create an array of words
             image: "assets/images/amy_gif.gif",
         },
         {
-            word: "tailsmilesprower",
+            word: "tails miles prower",
             image: "assets/images/tails_gif.gif",
         },
         {
@@ -34,19 +34,19 @@ var selectableWords =           // create an array of words
             image: "assets/images/infinite_gif.gif",
         },
         {
-            word: "chaoseemeralds",
+            word: "chaos emeralds",
             image: "assets/images/chaosEmeralds_gif.gif",
         },
         {
-            word: "sonicgenerations",
+            word: "sonic generations",
             image: "assets/images/sonic_generations_gif.gif",
         },
         {
-            word: "sonicunleashed",
+            word: "sonic unleashed",
             image: "assets/images/sonic_unleashed_gif.gif",
         },
         {
-            word: "metalsonic",
+            word: "metal sonic",
             image: "assets/images/metal_sonic_gif.gif",
 
         },
@@ -55,15 +55,15 @@ var selectableWords =           // create an array of words
             image: "assets/images/superSonic_giphy.gif",
         },
         {
-            word: "rougethebat",
+            word: "rouge the bat",
             image: "assets/images/rouge_gif.gif",
         },
         {
-            word: "sonicforces",
+            word: "sonic forces",
             image: "assets/images/sonicForces_gif.gif",
         },
         {
-            word: "soniclostworld",
+            word: "sonic lost world",
             image: "assets/images/sonicLostWorld.gif",
         },
 
@@ -110,7 +110,7 @@ $(".letter-button").on("click", function () {
 // =============================================
 
 window.onload = function () {
-    document.getElementById("underscore").innerHTML = answer.join(" ");
+    document.getElementById("underscore").innerHTML = answer.join("");
     document.getElementById("remaining").innerHTML = "Guesses remaing: " + guessesLeft;
     document.getElementById("wins").innerHTML = "Wins: " + " " + wins;
     document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
@@ -127,23 +127,24 @@ function beginGame() {
 
     // === divide (split) randomWord into an individual letters and store it into videoGameletters
     videoGameLetters = currentWord.split("");
-    console.log(videoGameLetters);
-
-    // === obtain number of letters in randomWord and store it into numBlanks
-    numBlanks = videoGameLetters.length;
 
     guessesLeft = 12;
     wrongLtrs = [];
     answer = [];
 
-    // === replace (push) the correct amount of letters in the randomWord with underscores 
-    for (i = 0; i < numBlanks; i++) {
-        answer.push('_');
+    for (var i=0, j=videoGameLetters.length; i < j; i++){
+        // Put a space instead of an underscore between multi word "words"
+        if (videoGameLetters[i] === " ") {
+            answer.push(" ")
+        } else {
+            answer.push("_")
+        }
     }
 }
 
 function letterButtonClicked(x) {
 
+    x = x.toLowerCase();
     // === determine if key choosen was in the alphabet
     for (var i = 0; i < videoGameLetters.length; i++) { 		//scans through every letter in the array
         if (x === videoGameLetters[i]) {  				//if the letter that was clicked equals the letters of the random word
@@ -154,7 +155,6 @@ function letterButtonClicked(x) {
     $('#underscore').text(answer.join(' '));		//adds answer from letter arrary and displays it
 
     if (!(videoGameLetters.indexOf(x) > -1)) {			//if the word does not have the letter 
-
         document.getElementById("killed").play();
         wrongLtrs.push(x);
         guessesLeft--;
@@ -168,7 +168,7 @@ function rounds() {
     document.getElementById("mad").style.visibility = "hidden";
     document.getElementById("winImage").style.visibility = "hidden";
     document.getElementById("remaining").innerHTML = "Guesses remaining: " + " " + guessesLeft;
-    document.getElementById("underscore").innerHTML = answer.join(" ");
+    document.getElementById("underscore").innerHTML = answer.join("");
     document.getElementById("guessed").innerHTML = "Already used: " + " " + wrongLtrs.join(" ");
 
     if (videoGameLetters.toString() == answer.toString()) {
