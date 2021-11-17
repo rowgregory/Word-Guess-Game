@@ -72,3 +72,7 @@ audio {
     color:white;
     justify-content: space-around;
 }
+
+.darken {
+    background: #000;
+}
