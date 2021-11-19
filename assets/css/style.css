@@ -39,6 +39,7 @@ audio {
 
 #winImage {
     width:100%;
+    max-width:315px;
 }
 
 .letter {
