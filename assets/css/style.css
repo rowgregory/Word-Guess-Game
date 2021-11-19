@@ -5,7 +5,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     margin:0;
-    padding:0; 
+    padding:0;
 }
 
 .jumbotron {
@@ -21,15 +21,7 @@ h1{
 }
 
 audio {
-    opacity: 1; 
-}
-
-#mad {
-    height: 250px;
-    width: 250px;
-    margin-top:-260px;
-    margin-left:110px;
-    
+    opacity: 1;
 }
 
 #underscore {
@@ -37,14 +29,12 @@ audio {
     font-size:1em;
     color:white;
     background: rgba(0, 0, 0, 0.7);
-    padding:25px;    
+    padding:25px;
 }
 
 .answerImage{
-    height: 250px;
-    width: 300px;
+    width: fit-content;
     visibility: hidden;
-    margin-left:90px;
 }
 
 .letter {
@@ -75,4 +65,7 @@ audio {
 
 .darken {
     background: #000;
+}
+.modal-footer, .modal-body {
+    margin: 0 auto;
 }

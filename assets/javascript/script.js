@@ -171,7 +171,6 @@ const determineCorrectLetter = (x) => {
   const wrongLetter = !(videoGameLetters.indexOf(x) > -1);
 
   if (wrongLtrs.includes(x)) {
-    console.log('here');
     document.getElementById('killed').play();
   } else if (wrongLetter) {
     $(`#${x.toUpperCase()}`).addClass('darken');
@@ -205,6 +204,8 @@ const win = () => {
   totalWins.innerHTML = `Wins: ${wins}`;
   $('#myModal').modal('show');
   $('.modal-title').text('You won!');
+  document.getElementById('mad').style.display = 'none';
+  document.getElementById('winImage').style.display = 'block';
 };
 
 const lose = () => {
@@ -214,6 +215,8 @@ const lose = () => {
   totalLosses.innerHTML = `'Losses: ${losses}`;
   $('#myModal').modal('show');
   $('.modal-title').text('You lost');
+  document.getElementById('mad').style.display = 'block';
+  document.getElementById('winImage').style.display = 'none';
 };
 
 $('#reset').on('click', () => {
