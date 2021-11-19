@@ -37,6 +37,10 @@ audio {
     visibility: hidden;
 }
 
+#winImage {
+    width:100%;
+}
+
 .letter {
     background: rgba(3, 3, 3, 0.75);
     border:none;
